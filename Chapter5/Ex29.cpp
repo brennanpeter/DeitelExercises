@@ -1,0 +1,35 @@
+/* Written by Peter Brennan 8/3/17
+  This program modifies fig 5.6 to calculate if Peter Minuit made a good
+  investment when he purchased Manhattan island for $24.00 in 1626
+*/
+
+// Fig 5.6: Interest.cpp
+// Compound-interest calculations with for.
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main() {
+  // set floating point format
+  cout << fixed << setprecision(2);
+
+  double principal{24.00}; // initial amount before interest
+  double rate{0.10}; // interest rate
+
+  cout << "Initial principal: " << principal << endl;
+  cout << "    Interest rate:    " << rate << endl;
+
+  // display headers
+  cout << "\nYear" << setw(20) << "Amount on deposit" << endl;
+
+  // calculate amount on deposit for each o ften years
+  for (unsigned int year{1}; year <= 390; year++){
+    // calculate amount on deposit at the end of the specified year
+    double amount = principal * pow(1.0 + rate, year);
+
+    // display the year and the amount
+    cout << setw(4) << year << setw(20) << amount << endl;
+  }
+}
